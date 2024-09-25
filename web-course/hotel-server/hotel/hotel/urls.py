@@ -20,10 +20,13 @@ from django.urls import path
 from apartments.views import index
 from apartments.views import description
 from apartments.views import applicants
+from apartments.views import apartments
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", index, name="index"), 
+    path("", apartments, name="apartments"),
     path("description", description, name="description"), 
     path("applicants", applicants, name="applicants"), 
 

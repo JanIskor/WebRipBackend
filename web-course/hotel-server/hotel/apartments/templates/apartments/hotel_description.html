@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-    <link rel="stylesheet" href="static/hotel_description.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>JUNIOR SUITE</title>
-	</head>
-  <div class=description_page>
-    <div class=header>
-      <div class="header_box"></div>
-      <span  class="header_name">MARRIOT</span>
-      <a class="nav-link" href="hotel_menu.html"><span  class="header_name">MARRIOT</span></a>
-    </div>
-    <div class="image_5"></div>
+{% extends 'apartments/base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href={% static "/hotel_description.css"%}>
+{% endblock %}
+
+{% block content %}
+  <div class="image_5"></div>
     <span  class="junior_suite">JUNIOR SUITE</span>
     <div class=description>
       <span  class="title_description">Beds and Bedding</span>
@@ -34,8 +28,9 @@
         <span  class="main_description">Полулюкс, 1 большая двуспальная кровать, Диван-кровать, Мини-холодильник,<br> 59 кв.м., Гостиная/зона отдыха, Беспроводной доступ в Интернет (платно), Проводной доступ в Интернет (платно), Кофеварка/чайник</span>
         <span  class="price">17,388₽</span>
       </div>
-    <!-- <span  class="back_button">
-       Назад</span> -->
-    <a class="nav-link" href="hotel_application.html"><span  class="back_button">< Назад</span></a>
-  </div>
-</html>
+{% endblock %}
+
+
+
+
+
