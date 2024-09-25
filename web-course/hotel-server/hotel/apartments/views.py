@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
 def index(request):
-  return render(request, "services/index.html")
+  return render(request, "apartments/hotel_menu.html")
 
 def description(request):
-  return render(request, "services/index2.html")
+  return render(request, "apartments/hotel_description.html")
 
 def applicants(request):
-  return render(request, "services/index3.html")
+  return render(request, "apartments/hotel_application.html")
 
 drivers = [
   {
