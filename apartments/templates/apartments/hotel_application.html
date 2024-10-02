@@ -1,0 +1,61 @@
+{% extends 'apartments/base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href={% static "/hotel_application.css"%}>
+{% endblock %}
+
+{% block content %}
+  <span  class="main_header">Текущие заявки </span>
+  {% for application in order_apartments %}
+    <div class="card">
+      <div class="card_box"></div>
+      <div class="card_box_description">
+        <div class="image_box">
+          <div class="rectangle_8"></div>
+          <div class="image" id="{{application.id}}">
+            <img src="{{application.image}}" />
+          </div>
+        </div>
+        <div class="date">
+          <span  class="price_final">Стоимость: </span>
+          <span  class="text_duration">Длительность: 10 дней/ночей</span></div>
+        <div class=main_service>
+          <span  class="description">{{application.name}}</span>
+          <span  class="bottom_date">С 12.12.2012</span></div>
+        {% comment %} <span  class="description">{{application.name}}</span> {% endcomment %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
+
+ {% comment %} <div class=top_card>
+    <div class="card_box"></div>
+    <div class=card_box_description>
+      <div class=image_box>
+        <div class="rectangle_8"></div>
+        <div class="image_3"></div>
+      </div>
+      <span  class="description">STUDIO SUITE</span>
+      <div class=button>
+        <form class="nav-link" action="{% url 'apartments_detail' id_apartments=aparment.id %}" method="GET" enctype="multipart/form-data">
+          <div class="rectangle_9"></div>
+          <span  class="text_button">Подробнее</span>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class=bottom_card>
+    <div class="card_box"></div>
+    <div class=card_box_description>
+      <div class=image_box>
+        <div class="rectangle_8"></div>
+        <div class="image_8"></div>
+      </div>
+      <div class=button>
+        <div class="rectangle_9"></div><span  class="text_button">Подробнее</span>
+      </div><span  class="description">Breakfast in room</span>
+    </div>
+  </div>
+{% endcomment %}
