@@ -55,40 +55,17 @@ body {
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 }
-/* .button {
-	width: 151px;
-	height: 47px;
-	position: absolute;
-	left: 954px;
-	top: 57px;
-} */
-/* .rectangle_9 {
-	background-color: rgba(
-		254.00000005960464,
-		169.00000512599945,
-		169.00000512599945,
-		1
-	);
-	width: 151px;
-	height: 47px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-} */
+
 .text_button {
 	color: rgba(0, 0, 0, 1);
-	width: 121px;
-	height: 24px;
+	width: 82px;
+	height: 18px;
 	position: absolute;
-	left: 22px;
+	left: 27px;
 	top: 10px;
-	font-family: Montserrat;
+	font-family: Inika;
 	text-align: left;
-	font-size: 24px;
+	font-size: 20px;
 	letter-spacing: 0;
 }
 
@@ -132,7 +109,7 @@ body {
 .description {
 
 	color:rgba(0, 0, 0, 1);
-	width:263px;
+	width:290px;
 	height:34px;
 	position:absolute;
 	left:0px;
@@ -212,19 +189,19 @@ body {
 	width:322px;
 	height:29px;
 	position:absolute;
-	left:0px;
+	left:696px;
 	top:0px;
 	text-align:left;
 	font-size:24px;
 	letter-spacing:0;
 }
-.date { 
+/* .date { 
 	width:322px;
 	height:88px;
 	position:absolute;
 	left:675px;
 	top:46px;
-}
+} */
 .bottom_date { 
 	color:rgba(0, 0, 0, 1);
 	width:263px;
@@ -248,4 +225,85 @@ body {
 	text-align:left;
 	font-size:24px;
 	letter-spacing:0;
+}
+
+.start_date { 
+	width:130px;
+	height:32px;
+	position:absolute;
+	left: 969px;
+	top: 208px;
+}
+.date_box { 
+	background-color:rgba(217.0000022649765, 217.0000022649765, 217.0000022649765, 1);
+	width:128px;
+	height:32px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.date_text { 
+	color:rgba(0, 0, 0, 1);
+	width:100px;
+	height:19px;
+	position:absolute;
+	left:20px;
+	top:6px;
+	font-family:Inria Serif;
+	text-align:left;
+	font-size:16px;
+	letter-spacing:0;
+}
+.last_date { 
+	width:130px;
+	height:32px;
+	position:absolute;
+	left: 1140px;
+	top: 208px;
+}
+.rectangle_6 {
+	background-color: rgba(
+		254.35254514217377,
+		168.93081843852997,
+		168.93081843852997,
+		1
+	);
+	width: 127px;
+	height: 47px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 10px;
+}
+.bottom_button{
+	color:rgba(0, 0, 0, 1);
+	width:263px;
+	height:29px;
+	position:absolute;
+	left:322px;
+	top:196px;
+	font-family:Inria Serif;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:0;
+}
+
+.field_input{
+	background-color:rgba(255, 255, 255, 1);
+	width:364px;
+	height:106px;
+	left: 696px;
+	top:38px;
+	border-color: gray;
+	border-width: thin;
+	border-radius: 10px;
+	font-family: Inria Serif;
+  /* text-align: top; */
+  font-size: 24px;
+  letter-spacing: 0;
+	position: absolute;
 }

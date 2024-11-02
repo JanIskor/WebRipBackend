@@ -6,8 +6,16 @@
 {% endblock %}
 
 {% block content %}
-  <span  class="main_header">Текущие заявки </span>
-  {% for application in order_apartments %}
+  <span  class="main_header">Текущая заявка </span>
+  {% for application in apartments_in_application %}
+    <div class="start_date">
+      <div class="date_box"></div>
+      <span  class="date_text">С {{from|date:"d.m.Y"}}</span>
+    </div>
+    <div class="last_date">
+      <div class="date_box"></div>
+      <span  class="date_text">По {{to|date:"d.m.Y"}}</span>
+    </div>
     <div class="card">
       <div class="card_box"></div>
       <div class="card_box_description">
@@ -17,45 +25,29 @@
             <img src="{{application.image}}" />
           </div>
         </div>
-        <div class="date">
-          <span  class="price_final">Стоимость: </span>
-          <span  class="text_duration">Длительность: 10 дней/ночей</span></div>
-        <div class=main_service>
+        {% if application.parking_place %}
+          <div class="date">
+            <span  class="text_duration">Количество парковочных мест{{application.parking_place}}</span>
+            <input class="field_input" placeholder="Введи кол" type="text">
+          </div>
+        {% else %}
+          <div class="date">
+            <span  class="text_duration">Комментарий:</span>
+            <input class="field_input" placeholder="Введите комментарий" type="text" value="{{ application.comments_wishes }}">
+          </div> 
+        {% endif %}
+        <div class="main_service">
           <span  class="description">{{application.name}}</span>
-          <span  class="bottom_date">С 12.12.2012</span></div>
-        {% comment %} <span  class="description">{{application.name}}</span> {% endcomment %}
+          <span  class="bottom_date">Стоимость: {{application_amount}} </span></div>
       </div>
     </div>
   {% endfor %}
+  <form action="{% url 'deleteService' application_id %}" method="post" class="bottom_button" value="delete">
+    {% csrf_token %}
+    <button type="submit">
+      <div class="rectangle_6"></div>
+      <span  class="text_button">Удалить</span>
+    </button>
+	</form>
 {% endblock %}
 
- {% comment %} <div class=top_card>
-    <div class="card_box"></div>
-    <div class=card_box_description>
-      <div class=image_box>
-        <div class="rectangle_8"></div>
-        <div class="image_3"></div>
-      </div>
-      <span  class="description">STUDIO SUITE</span>
-      <div class=button>
-        <form class="nav-link" action="{% url 'apartments_detail' id_apartments=aparment.id %}" method="GET" enctype="multipart/form-data">
-          <div class="rectangle_9"></div>
-          <span  class="text_button">Подробнее</span>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class=bottom_card>
-    <div class="card_box"></div>
-    <div class=card_box_description>
-      <div class=image_box>
-        <div class="rectangle_8"></div>
-        <div class="image_8"></div>
-      </div>
-      <div class=button>
-        <div class="rectangle_9"></div><span  class="text_button">Подробнее</span>
-      </div><span  class="description">Breakfast in room</span>
-    </div>
-  </div>
-{% endcomment %}

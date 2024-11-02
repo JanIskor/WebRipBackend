@@ -15,20 +15,41 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 
-# from apartments.views import applicants
+from apartments.views import *
 from apartments import views
-from apartments.views import order
+
+from django.urls import include, path
+
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    # path("", index, name="index"), 
-    # path("", apartment, name="apartment"),
-    path('', views.index, name="index"),
-    # path("description", description, name="description"), 
-    # path("applicants", applicants, name="applicants"), 
-    path("order/<int:application_id>", views.order, name="order"), 
+    path("admin/", admin.site.urls), 
+    path('', views.index_apart_hotel, name="index_apart_hotel"),
+    path("application_apartments_detail/<int:application_id>", views.application_apartments_detail, name="application_apartments_detail"), 
     path('apartments/<int:id_apartments>/', views.apartments_detail, name='apartments_detail'),
+    path('apartments/addService/<int:id_apartments>/', views.addService, name='addService'),
+    path('apartments/deleteService/<int:id>/', views.deleteService, name='deleteService'),
 
+
+    # Набор методов для услуг
+    path('api/apart_services/', ApartHotelServiceList.as_view(), name='apart-detail'),
+    path('api/apart_service/<int:id_apartments>/', ApartHotelServiceDetail.as_view(), name='apart-detail'),
+    path('api/apart_service/<int:id_apartments>/add-draft/', ApartHotelServiceDetail.as_view(), name='apart-detail-draft'),
+    path('api/apart_service/<int:pk>/edit/', ApartHotelServiceEditingView.as_view(), name='apart-detail'),
+
+    # Набор методов для заявок
+    path('api/application/', search_application),  # GET
+    path('applications/<int:pk>/', views.ApplicationDetail.as_view(), name='apps-detail'),
+    path('applications/<int:pk>/submit/', views.ApplicationFormingView.as_view(), name='apps-detail'),
+    path('applications/<int:pk>/accept-reject/', views.ApplicationCompletingView.as_view(), name='apps-detail'),
+
+    # Набор методов для M:M
+    path('apart_service_map/', views.ApplicationApartmentsList.as_view(), name="map-list"),
+    path('apart_service_map/<int:pk>/', views.ApplicationApartmentsDetail.as_view(), name="map-detail"),
+    
+    # Набор методов для пользователей
+	path('users/', views.UsersList.as_view(), name='users-list'),
+	path('user/<int:pk>/', views.UserDetail.as_view(), name='user'),
+	path('login/', views.UserLoginView.as_view(), name='user-login'),
+    path('logout/', logout), # POST
 ]
